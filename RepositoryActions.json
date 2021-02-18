@@ -1,0 +1,98 @@
+# Define your repository context actions for RepoZ with this file.
+# RepoZ has to be restarted to reload changes.
+
+# You can define multiple executable paths for applications which can be found at different locations (like Visual Studio Code).
+# Try to avoid absolute paths if possible by using environment variables like %PROGRAMFILES% or %APPDATA%, for example.
+# Run 'SET' in cmd.exe to see the list of environment variables you can use.
+
+# Use the placeholders below to build command line arguments. RepoZ will replace it automatically.
+
+# TYPE      PLACEHOLDER                         EXAMPLE
+# string    {Repository.Name}                   RepoZ
+# string    {Repository.Path} (prefer SafePath) C:\Develop\OpenSource\RepoZ\ (Windows)    or    /users/awaescher/OpenSource/RepoZ (macOS)
+# string    {Repository.SafePath}               C:/Develop/OpenSource/RepoZ
+# string    {Repository.Location}               C:\Develop\OpenSource
+# string    {Repository.CurrentBranch}          feature/CustomizableContextMenu
+# string[]  {Repository.Branches}               master|feature/CustomizableContextMenu|origin/HEAD|origin/master|origin/feature/CustomizableContextMenu
+# string[]  {Repository.LocalBranches}          master|feature/CustomizableContextMenu
+# string[]  {Repository.RemoteUrls}             https://github.com/awaescher/repoz
+
+# Path, SafePath and Location will NOT be wrapped in quotes by default, because some apps require different quotes or escape signs.
+
+# The first action will automatically get the Shortcut [Return], the second [Ctrl+Return] in addition to the shortcuts defined below.
+# file-associations don't support repository objects, since they're based on file paths. Use {FilePath} to refer to the files' locations
+
+{
+    "repository-actions":
+    [
+        {
+            "name": "Open in Windows File Explorer",
+            "executables": ['"{Repository.SafePath}"'],
+            "keys": "Ctrl+E",
+            "active": "true"
+        },
+        {
+            "name": "Open in Windows Terminal",
+            "executables": ['%LocalAppData%/Microsoft/WindowsApps/wt.exe'],
+            "arguments": '-d "{Repository.SafePath}"',  
+            "keys": "Ctrl+T",
+            "active": "true"
+        },
+        {
+            "name": "Open in Windows PowerShell",
+            "executables": ['%WINDIR%/System32/WindowsPowerShell/v1.0/powershell.exe'],
+            "arguments": '-executionpolicy bypass -noexit -command "Set-Location "{Repository.SafePath}""',  
+            "keys": "Ctrl+P",
+            "active": "true"
+        },
+        {
+            "name": "Open in Visual Studio Code",
+            "executables":
+            [
+                '%LocalAppData%/Programs/Microsoft VS Code/code.exe', 
+                '%ProgramW6432%/Microsoft VS Code/code.exe'
+            ],
+            "arguments": '"{Repository.SafePath}"',  
+            "active": "true"
+        },
+        {
+            "name": "Open in GitHub Desktop",
+            "executables": ['%LocalAppData%/GitHubDesktop/bin/github.bat'],
+            "arguments": '"{Repository.SafePath}"',  
+            "active": "true"
+        },
+        {
+            "name": "Open in Sourcetree",
+            "executables":
+            [
+                '%LocalAppData%/SourceTree/SourceTree.exe', 
+                '%PROGRAMFILES(X86)%/Atlassian/SourceTree/SourceTree.exe'
+            ],
+            "arguments": '-f "{Repository.SafePath}"',  
+            "active": "true"
+        },
+        {
+            "name": "Open in Git Extensions",
+            "executables": ['%PROGRAMFILES(X86)%/GitExtensions/GitExtensions.exe'],
+            "arguments": 'browse "{Repository.SafePath}"',  
+            "active": "true"
+        }
+    ],
+    "file-associations":
+    [
+        {
+            "name": "Open Visual Studio solutions",
+            "extension": "*.sln",
+            "executables": ['start'],
+            "arguments": '"{FilePath}"',
+            "active": "true"
+        },
+        {
+            "name": "Open Xcode projects",
+            "extension": "*.xcodeproj",
+            "executables": ['open'],
+            "arguments": '"{FilePath}"',
+            "active": "true"
+        }
+    ]
+}
