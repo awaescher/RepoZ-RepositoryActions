@@ -72,7 +72,7 @@
             "active": "true"
         },
         {
-            "name": "Open in Git Extensions",
+            "name": "Open in GitExtensions",
             "executables": ['%PROGRAMFILES(X86)%/GitExtensions/GitExtensions.exe'],
             "arguments": 'browse "{Repository.SafePath}"',  
             "active": "true"
