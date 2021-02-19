@@ -76,6 +76,13 @@
             "executables": ['%PROGRAMFILES(X86)%/GitExtensions/GitExtensions.exe'],
             "arguments": 'browse "{Repository.SafePath}"',  
             "active": "true"
+        },
+        {
+            "name": "Open in Cmder",
+            "executables": ['cmder.exe'],
+            "arguments": '/start "{Repository.SafePath}"',
+            "keys": "Ctrl+Shift+C",
+            "active": "true"
         }
     ],
     "file-associations":
