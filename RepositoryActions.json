@@ -1,3 +1,5 @@
+# https://github.com/awaescher/RepoZ-RepositoryActions
+
 # Define your repository context actions for RepoZ with this file.
 # RepoZ has to be restarted to reload changes.
 
@@ -9,8 +11,8 @@
 
 # TYPE      PLACEHOLDER                         EXAMPLE
 # string    {Repository.Name}                   RepoZ
-# string    {Repository.Path} (prefer SafePath) C:\Develop\OpenSource\RepoZ\ (Windows)    or    /users/awaescher/OpenSource/RepoZ (macOS)
-# string    {Repository.SafePath}               C:/Develop/OpenSource/RepoZ
+# string    {Repository.Path} (prefer SafePath) C:\Develop\OpenSource\RepoZ\ (Windows)    or    /Users/awaescher/Developer/RepoZ/ (macOS)
+# string    {Repository.SafePath}               C:/Develop/OpenSource/RepoZ  (Windows)    or    /Users/awaescher/Developer/RepoZ  (macOS)
 # string    {Repository.Location}               C:\Develop\OpenSource
 # string    {Repository.CurrentBranch}          feature/CustomizableContextMenu
 # string[]  {Repository.Branches}               master|feature/CustomizableContextMenu|origin/HEAD|origin/master|origin/feature/CustomizableContextMenu
