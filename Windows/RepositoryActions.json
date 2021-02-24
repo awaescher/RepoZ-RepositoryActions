@@ -31,7 +31,7 @@
 # 
 # Example
 # {
-#     "name": "Open in Visual Studio Code",
+#     "name": "{OpenIn} Visual Studio Code",        // {OpenIn} is a placeholder, see "Noteworthy"
 #     "command": 'code',
 #     "executables":
 #     [
@@ -78,7 +78,7 @@
 #
 # Example
 # {
-#     "name": "Open Visual Studio solutions",
+#     "name": "{Open} Visual Studio solutions",        // {OpenIn} is a placeholder, see "Noteworthy"
 #     "extension": "*.sln",
 #     "command": 'start',
 #     "arguments": '"{FilePath}"',
@@ -90,6 +90,8 @@
 # NOTEWORTHY
 # ===========
 #
+# - You might want to use the placeholders {Open}, {OpenIn} & {OpenWith} for the repository action and file association names,
+#   this allows RepoZ to translate "Open ..." to the user's language. The remaining part of the name will be moved at the correct location.
 # - {Repository.Path}, {Repository.SafePath} and {Repository.Location} will NOT be wrapped in quotes by default, because some apps require different escape characters.
 # - The first action will automatically get the Shortcut [Return], the second [Ctrl+Return]/[Command+Return] in addition to the shortcuts defined.
 # - Recursive file scans for the file associations might be time consuming. Therefore, RepoZ will not scan for files unless the sub menu
@@ -99,32 +101,32 @@
     "repository-actions":
     [
         {
-            "name": "Open in Windows File Explorer",
+            "name": "{OpenIn} Windows File Explorer",
             "command": '"{Repository.SafePath}"',
             "keys": "Ctrl+E",
             "active": "true"
         },
         {
-            "name": "Open in Windows Terminal",
+            "name": "{OpenIn} Windows Terminal",
             "command": 'wt',
             "arguments": '-d "{Repository.SafePath}"',  
             "keys": "Ctrl+T",
             "active": "true"
         },
         {
-            "name": "Open in Windows Command Shell",
+            "name": "{OpenIn} Windows Command Shell",
             "command": 'cmd',
             "arguments": '/K "cd /d {Repository.SafePath}"',  
             "active": "false"
         },
         {
-            "name": "Open in Windows PowerShell",
+            "name": "{OpenIn} Windows PowerShell",
             "executables": ['%WINDIR%/System32/WindowsPowerShell/v1.0/powershell.exe'],
             "arguments": '-executionpolicy bypass -noexit -command "Set-Location \'{Repository.SafePath}\'"',  
             "active": "false"
         },
         {
-            "name": "Open in Visual Studio Code",
+            "name": "{OpenIn} Visual Studio Code",
             "executables":
             [
                 '%LocalAppData%/Programs/Microsoft VS Code/code.exe', 
@@ -134,14 +136,14 @@
             "active": "true"
         },
         {
-            "name": "Open in GitHub Desktop",
+            "name": "{OpenIn} GitHub Desktop",
             "command": 'github',
             "arguments": '"{Repository.SafePath}"',  
             "active": "false"
         },
         {
             # Contributed by Coen van den Munckhof (https://github.com/coenm)
-            "name": "Open in Sourcetree",
+            "name": "{OpenIn} Sourcetree",
             "executables":
             [
                 '%LocalAppData%/SourceTree/SourceTree.exe', 
@@ -152,14 +154,14 @@
         },
         {
             # Contributed by Sean Feldman (https://github.com/SeanFeldman)
-            "name": "Open in Git Extensions",
+            "name": "{OpenWith} Git Extensions",
             "executables": ['%PROGRAMFILES(X86)%/GitExtensions/GitExtensions.exe'],
             "arguments": 'browse "{Repository.SafePath}"',  
             "active": "false"
         },
         {
             # Contributed by jods (https://github.com/jods4)
-            "name": "Open in Cmder",
+            "name": "{OpenIn} Cmder",
             "command": 'cmder.exe', # make sure Cmder is in PATH (https://github.com/cmderdev/cmder/#installation)
             "arguments": '/single /start "{Repository.SafePath}"',
             "keys": "Ctrl+Shift+C",
@@ -169,7 +171,7 @@
     "file-associations":
     [
         {
-            "name": "Open Visual Studio solutions",
+            "name": "{Open} Visual Studio solutions",
             "extension": "*.sln",
             "command": 'start',
             "arguments": '"{FilePath}"',

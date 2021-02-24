@@ -31,8 +31,8 @@
 # 
 # Example
 # {
-#     "name": "Open in Terminal",
-#     "command": ['open'],
+#     "name": "{OpenIn} Terminal",        // {OpenIn} is a placeholder, see "Noteworthy"
+#     "command": 'open',
 #     "executables": ['/path/to/app1', '/path/to/app2'],
 #     "arguments": '-b com.apple.terminal "{Repository.Path}"',
 #     "keys": "Command+Shift+T",
@@ -74,9 +74,9 @@
 #
 # Example
 # {
-#     "name": "Open Visual Studio solutions",
+#     "name": "{Open} Visual Studio solutions",        // {OpenIn} is a placeholder, see "Noteworthy"
 #     "extension": "*.sln",
-#     "executables": ['open'],
+#     "command": 'open',
 #     "arguments": '"{FilePath}"',
 #     "active": "true"
 # }
@@ -86,6 +86,8 @@
 # NOTEWORTHY
 # ===========
 #
+# - You might want to use the placeholders {Open}, {OpenIn} & {OpenWith} for the repository action and file association names,
+#   this allows RepoZ to translate "Open ..." to the user's language. The remaining part of the name will be moved at the correct location.
 # - {Repository.Path}, {Repository.SafePath} and {Repository.Location} will NOT be wrapped in quotes by default, because some apps require different escape characters.
 # - The first action will automatically get the Shortcut [Return], the second [Ctrl+Return]/[Command+Return] in addition to the shortcuts defined.
 # - Recursive file scans for the file associations might be time consuming. Therefore, RepoZ will not scan for files unless the sub menu
@@ -95,20 +97,20 @@
     "repository-actions":
     [
         {
-            "name": "Open in Finder",
+            "name": "{OpenIn} Finder",
             "command": '"{Repository.SafePath}"',
             "keys": "Command+Shift+E",
             "active": "true"
         },
         {
-            "name": "Open in Terminal",
+            "name": "{OpenIn} Terminal",
             "command": "open",
             "arguments": '-b com.apple.terminal "{Repository.Path}"',
             "keys": "Command+Shift+T",
             "active": "true"
         },
         {
-            "name": "Open in Visual Studio Code",
+            "name": "{OpenIn} Visual Studio Code",
             "executables": ['/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code'],
             "arguments": '"{Repository.SafePath}"', 
             "keys": "Command+Shift+C", 
@@ -116,7 +118,7 @@
         },
         {
             # Requires installation of the GitHub Command Line Tool on macOS (available in the GitHub Desktop main menu)
-            "name": "Open in GitHub Desktop",
+            "name": "{OpenIn} GitHub Desktop",
             "command": "github",
             "arguments": '"{Repository.SafePath}"',  
             "active": "true"
@@ -125,14 +127,14 @@
     "file-associations":
     [
         {
-            "name": "Open Visual Studio solutions",
+            "name": "{Open} Visual Studio solutions",
             "extension": "*.sln",
             "command": "open",
             "arguments": '"{FilePath}"',
             "active": "true"
         },
         {
-            "name": "Open Xcode projects",
+            "name": "{Open} Xcode projects",
             "extension": "*.xcodeproj",
             "command": "open",
             "arguments": '"{FilePath}"',
