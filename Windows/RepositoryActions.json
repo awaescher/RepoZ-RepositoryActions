@@ -31,11 +31,15 @@
 # 
 # Example
 # {
-#     "name": "Open in Terminal",
-#     "command": ['open'],
-#     "executables": ['/path/to/app1', '/path/to/app2'],
-#     "arguments": '-b com.apple.terminal "{Repository.Path}"',
-#     "keys": "Command+Shift+T",
+#     "name": "Open in Visual Studio Code",
+#     "command": 'code',
+#     "executables":
+#     [
+#         '%LocalAppData%/Programs/Microsoft VS Code/code.exe', 
+#         '%ProgramW6432%/Microsoft VS Code/code.exe'
+#     ],
+#     "arguments": '"{Repository.SafePath}"',
+#     "keys": "Ctrl+Shift+C",
 #     "active": "true"
 # }
 #
@@ -76,7 +80,7 @@
 # {
 #     "name": "Open Visual Studio solutions",
 #     "extension": "*.sln",
-#     "executables": ['open'],
+#     "command": 'start',
 #     "arguments": '"{FilePath}"',
 #     "active": "true"
 # }
@@ -96,23 +100,28 @@
     [
         {
             "name": "Open in Windows File Explorer",
-            "command": ['"{Repository.SafePath}"'],
+            "command": '"{Repository.SafePath}"',
             "keys": "Ctrl+E",
             "active": "true"
         },
         {
             "name": "Open in Windows Terminal",
-            "executables": ['%LocalAppData%/Microsoft/WindowsApps/wt.exe'],
+            "command": 'wt',
             "arguments": '-d "{Repository.SafePath}"',  
             "keys": "Ctrl+T",
             "active": "true"
         },
         {
+            "name": "Open in Windows Command Shell",
+            "command": 'cmd',
+            "arguments": '/K "cd /d {Repository.SafePath}"',  
+            "active": "false"
+        },
+        {
             "name": "Open in Windows PowerShell",
             "executables": ['%WINDIR%/System32/WindowsPowerShell/v1.0/powershell.exe'],
-            "arguments": '-executionpolicy bypass -noexit -command "Set-Location "{Repository.SafePath}""',  
-            "keys": "Ctrl+P",
-            "active": "true"
+            "arguments": '-executionpolicy bypass -noexit -command "Set-Location \'{Repository.SafePath}\'"',  
+            "active": "false"
         },
         {
             "name": "Open in Visual Studio Code",
@@ -126,11 +135,12 @@
         },
         {
             "name": "Open in GitHub Desktop",
-            "executables": ['%LocalAppData%/GitHubDesktop/bin/github.bat'],
+            "command": 'github',
             "arguments": '"{Repository.SafePath}"',  
-            "active": "true"
+            "active": "false"
         },
         {
+            # Contributed by Coen van den Munckhof (https://github.com/coenm)
             "name": "Open in Sourcetree",
             "executables":
             [
@@ -138,14 +148,23 @@
                 '%PROGRAMFILES(X86)%/Atlassian/SourceTree/SourceTree.exe'
             ],
             "arguments": '-f "{Repository.SafePath}"',  
-            "active": "true"
+            "active": "false"
         },
         {
+            # Contributed by Sean Feldman (https://github.com/SeanFeldman)
             "name": "Open in Git Extensions",
             "executables": ['%PROGRAMFILES(X86)%/GitExtensions/GitExtensions.exe'],
             "arguments": 'browse "{Repository.SafePath}"',  
-            "active": "true"
-        }
+            "active": "false"
+        },
+        {
+            # Contributed by jods (https://github.com/jods4)
+            "name": "Open in Cmder",
+            "command": 'cmder.exe', # make sure Cmder is in PATH (https://github.com/cmderdev/cmder/#installation)
+            "arguments": '/single /start "{Repository.SafePath}"',
+            "keys": "Ctrl+Shift+C",
+            "active": "false"
+          }
     ],
     "file-associations":
     [
