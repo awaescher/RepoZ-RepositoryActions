@@ -31,9 +31,11 @@ There, you can customize the repository actions you want to use in RepoZ. Each r
 }
 ```
 
+> Check the `json` files linked above for more information on how to define custom repository actions.
+
 With this, you can make RepoZ even more helpful to you and the community.
 
 ![image](https://user-images.githubusercontent.com/3630638/109568643-7f7f1100-7ae7-11eb-85e5-e99e5d490248.png)
 
-Check your `RepositoryActions.json` RepoZ created for you for more information on how to define custom repository actions.
+
 
