@@ -1,4 +1,4 @@
-# RepoZ Community Repository Actions
+# 💪 RepoZ Community Repository Actions
 
 This repository contains repository actions for the context menu in [RepoZ](https://github.com/awaescher/RepoZ).
 
@@ -10,7 +10,7 @@ We collected a bunch of repository actions for you to use. Just select the platf
 - [Windows](Windows/RepositoryActions.json)
 - [macOS](macOS/RepositoryActions.json)
 
-### Please consider to share your custom repository actions by creating a pull-request :heart:
+### Please consider to share your custom repository actions by creating a pull-request ♥
 
 ## What is this about?
 
