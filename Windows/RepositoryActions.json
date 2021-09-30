@@ -166,7 +166,18 @@
             "arguments": '/single /start "{Repository.SafePath}"',
             "keys": "Ctrl+Shift+C",
             "active": "false"
-          }
+        },
+        {
+            # Contributed by Coen van den Munckhof (https://github.com/coenm)
+            # For more information and download of Everything, goto https://www.voidtools.com
+            "name": "{OpenIn} Everything",
+            "executables":
+            [
+                '%ProgramW6432%/Everything/Everything.exe'
+            ],
+            "arguments":'-s """"{Repository.Path}""" "',
+            "active": "false"
+        }
     ],
     "file-associations":
     [
